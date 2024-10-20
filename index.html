@@ -1,0 +1,553 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>RODECaster Pro II</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ :root {--mermaid-font-zoom:1.77em ;} 
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="rodecaster-pro-ii" class="md-header-anchor"></a><span>RODECaster Pro II </span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n3"><a class="md-toc-inner" href="#rodecaster-pro-ii">RODECaster Pro II </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n449"><a class="md-toc-inner" href="#aviso-legal-de-derechos-de-autor-y-copyrights">Aviso legal de derechos de Autor y Copyrights</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n31"><a class="md-toc-inner" href="#rødecaster-pro-ii">RØDECaster Pro II </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n41"><a class="md-toc-inner" href="#how-to-get-started-with-the-rødecaster-pro-ii">How To Get Started With The RØDECaster Pro II</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n37"><a class="md-toc-inner" href="#the-start-up-process">The Start-up Process:</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n38"><a class="md-toc-inner" href="#selecting-a-language">Selecting a Language</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n50"><a class="md-toc-inner" href="#time-and-date">Time and Date</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n63"><a class="md-toc-inner" href="#updating-firmware">Updating Firmware</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n73"><a class="md-toc-inner" href="#the-setup-wizard">The Setup Wizard</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n83"><a class="md-toc-inner" href="#connecting-headphones-and-speakers">Connecting Headphones and Speakers</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n84"><a class="md-toc-inner" href="#connecting-headphones">Connecting Headphones</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n96"><a class="md-toc-inner" href="#pro-tip">Pro Tip</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n103"><a class="md-toc-inner" href="#adjusting-headphone-levels">Adjusting Headphone Levels</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n114"><a class="md-toc-inner" href="#pro-tip-n114">Pro Tip</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n119"><a class="md-toc-inner" href="#connecting-and-using-speakersmonitors">Connecting and Using Speakers/Monitors</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n129"><a class="md-toc-inner" href="#pro-tip-n129">Pro Tip</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n134"><a class="md-toc-inner" href="#monitor-output-settings">Monitor Output Settings</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n156"><a class="md-toc-inner" href="#connecting-microphones-instruments-and-other-devices">Connecting Microphones, Instruments and Other Devices</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n158"><a class="md-toc-inner" href="#connecting-microphones">Connecting Microphones</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n168"><a class="md-toc-inner" href="#microphone-basic-setup">Microphone Basic Setup</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n173"><a class="md-toc-inner" href="#pro-tip-n173">Pro Tip</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n180"><a class="md-toc-inner" href="#setting-microphone-levels">Setting Microphone Levels</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n198"><a class="md-toc-inner" href="#tips-on-microphone-technique">Tips on Microphone Technique</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n209"><a class="md-toc-inner" href="#using-microphone-presets">Using Microphone Presets</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n224"><a class="md-toc-inner" href="#connecting-instruments-and-line-level-devices">Connecting Instruments and Line-Level Devices</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n232"><a class="md-toc-inner" href="#stereo-linking-inputs">Stereo Linking Inputs</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n243"><a class="md-toc-inner" href="#pro-tip-n243">Pro Tip</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n248"><a class="md-toc-inner" href="#saving-and-exporting-settings-as-a-show">Saving and Exporting Settings as a 'Show'</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n262"><a class="md-toc-inner" href="#factory-reset">Factory Reset</a></span></p></div><p>&nbsp;</p><h2><a name="aviso-legal-de-derechos-de-autor-y-copyrights" class="md-header-anchor"></a><span>Aviso legal de derechos de Autor y Copyrights</span></h2><p><span> </span></p><p><span>Esta documentacion usa la doctrina &quot;fair use&quot; es una doctrina legal sobre el copyright (derecho de autor), que permite un uso limitado del material con derechos de autor, sin la necesidad de requerir permiso a los titulares de tal derecho. Este uso limitado atañe a cualquiera que no posea los derechos sobre el material, y comprende una licencia de uso restringida a fines didácticos o de revisión de material (tipo review).</span></p><p><span>Esto provee un marco legal para citaciones sin licencia o incorporación de material con derecho de autor en otras obras. Esta disposición está basada en los derechos del discurso libre contemplados en la Primera Enmienda de la Constitución de los Estados Unidos.</span></p><p><span>El uso razonable es considerado una de las excepciones a los derechos exclusivos de un autor sobre sus obras. En general, se considera uso razonable la utilización de una obra con propósitos de crítica, realización de comentarios descriptivos, noticias, enseñanza e investigación.</span></p><p><span>Para decidir si el uso de una obra es razonable, también se toman en cuenta algunos otros factores como los siguientes:</span></p><ul><li><span>Si el uso es sin fin de lucro ni comercial.</span></li><li><span>Si es un uso educativo y/o informativo.</span></li><li><span>La porción (Tamaño y/o importancia) del trabajo utilizada.</span></li><li><span>El efecto de ese uso sobre el mercado potencial o el valor del trabajo protegido.</span></li><li><span>El contexto en el que es utilizado.</span></li><li><span>La explotación que se le da al mismo.</span></li></ul><p><span>Toda la información publicada en la web y en este articulo es bajo la doctrina del &quot;</span><strong><span>Fair  Use</span></strong><span>&quot;  in </span><em><span>Title 17 § 107</span></em><span>  Of The  United  States  Code.</span></p><p><span> </span></p><blockquote><p><span>This Website its  Archive  of  My Studies,  Varied and Data Collected  Information  of My Own  Interpretation.  Based In:    </span><strong><span>Documents,  Internet,  Wikipedia,  PDF,  Forums and  Self-Study Empiric</span></strong><span>.  The Use of  Any  Copyrighted  Material  Is Used  Under  The Guidelines  Of   &quot;</span><strong><span>Fair  Use</span></strong><span>&quot;  in Title 17 § 107  Of The  United  States  Code.   Such  Material  Remains  The Copyright  Of The  Original  Holder  And Is  Used  Here  For  The  Purposes  Of  Education,   Comparison,  And  Criticism  Only.     </span></p><p><strong><span>No   Infringement  Of  Copyright  Is  Intended</span></strong><span>.</span></p></blockquote><p><span> </span></p><h3><a name="rødecaster-pro-ii" class="md-header-anchor"></a><span>RØDECaster Pro II </span></h3><h3><a name="how-to-get-started-with-the-rødecaster-pro-ii" class="md-header-anchor"></a><span>How To Get Started With The RØDECaster Pro II</span></h3><p>&nbsp;</p><h4><a name="the-start-up-process" class="md-header-anchor"></a><span>The Start-up Process:</span></h4><h4><a name="selecting-a-language" class="md-header-anchor"></a><span>Selecting a Language</span></h4><p><span>After booting up your RØDECaster Pro II for the first time, you will be asked to select your default language. There are 10 languages to choose from: English, Chinese, Japanese, Korean, French, German, Italian, Spanish and Portuguese. The default language can be changed at any time by tapping the settings cog and selecting ‘System’ &gt; ‘Language’.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_1.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="time-and-date" class="md-header-anchor"></a><span>Time and Date</span></h4><p><span>Next you will be asked to configure the time and date for your unit. Use the rotary encoder and touchscreen to set your local time and date. On the bottom left, you can also select whether you would like to show the time and date on the home screen.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_2.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="updating-firmware" class="md-header-anchor"></a><span>Updating Firmware</span></h4><p><span>Next you will be prompted to connect your RØDECaster Pro II to a computer via Wi-Fi, ethernet or USB to ensure you are running the most up-to-date firmware. Select your preferred connection method and follow the instructions to establish internet connection.</span></p><p>&nbsp;</p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_3.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="the-setup-wizard" class="md-header-anchor"></a><span>The Setup Wizard</span></h4><p><span>Next you will be taken through the Setup Wizard process, which provides step-by-step instructions for configuring your device. These steps are covered below. You can access the Setup Wizard at any time by creating a new ‘Show’ (tap the ‘Show’ icon in the top right of the homepage, then ‘New Show’).</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_4.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="connecting-headphones-and-speakers" class="md-header-anchor"></a><span>Connecting Headphones and Speakers</span></h4><h4><a name="connecting-headphones" class="md-header-anchor"></a><span>Connecting Headphones</span></h4><p><span>There are four outputs on the back of the RØDECaster Pro II for connecting four pairs of headphones. These feature high-quality ¼-inch connectors. If your headphones have a 3.5mm connector, use a ¼-inch to 3.5mm adaptor such as the </span><a href='https://rode.com/accessories/adaptors-cables/hja-4'><span>RØDE HJA-4</span></a><span> to connect them to the unit.</span></p><p>&nbsp;</p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_5.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="pro-tip" class="md-header-anchor"></a><span>Pro Tip</span></h4><p><span>If you are the host of a podcast or producing/engineering a recording, we recommend always plugging into headphone output 1. This is because when you press the ‘Listen’ button on a fader, it will only be solo’d for headphone output 1 so you can listen to that channel without disrupting the flow of the recording for other people in your session.</span></p><p>&nbsp;</p><h4><a name="adjusting-headphone-levels" class="md-header-anchor"></a><span>Adjusting Headphone Levels</span></h4><p><span>Each headphone output has an independent level control. These are located on the front of the unit and labelled 1-4. This allows you to easily control the volume of your headphones and balance the levels for others you are recording with.</span></p><p><span>You can also optimise the output level for the type of headphones you are using (i.e., whether they are high sensitivity or low sensitivity). To do this, tap the settings cog, then ‘Outputs’ &gt; ‘Headphones’, then select your headphone type. High sensitivity models have more output while low sensitivity models have less output. Selecting the correct setting for your headphone type will optimise the gain structure to make setting headphone levels as consistent as possible.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_6.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="pro-tip-n114" class="md-header-anchor"></a><span>Pro Tip</span></h4><p><span>To avoid unexpected loud sounds in your headphones, we recommend always starting with your headphone levels low before setting up your inputs for recording, then turning them up to a comfortable level.</span></p><h4><a name="connecting-and-using-speakersmonitors" class="md-header-anchor"></a><span>Connecting and Using Speakers/Monitors</span></h4><p><span>There are two balanced ¼-inch line outputs on the back of the RØDECaster Pro II for connecting a pair of speakers/monitors. These are clearly labelled left and right. The monitor output level is controlled using the rotary encoder on the front of the unit and there is an icon on the top of the mixer screen to check your level.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_7.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="pro-tip-n129" class="md-header-anchor"></a><span>Pro Tip</span></h4><p><span>To avoid interference or electrical noise when using speakers/monitors, we recommend using balanced TRS cables.</span></p><p>&nbsp;</p><h4><a name="monitor-output-settings" class="md-header-anchor"></a><span>Monitor Output Settings</span></h4><p><span>You can access two additional settings for the monitor outputs by tapping the settings cog, then ‘Outputs’ &gt; ‘Monitor’.</span></p><p>&nbsp;</p><p><strong><span>Auto-mute Output</span></strong><span> </span></p><p><span>When selected, the monitor output will automatically be muted whenever a microphone channel fader is turned up in order to prevent feedback.</span></p><p>&nbsp;</p><p><strong><span>Fixed Output Level</span></strong><span> </span></p><p><span>When enabled, the monitor output level will be set to line-level and cannot be adjusted. This is useful if you are using the monitor outputs to send audio to outboard equipment, such as broadcast or livestreaming equipment, and want to ensure that your levels aren’t too high or low.</span></p><p>&nbsp;</p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_8.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="connecting-microphones-instruments-and-other-devices" class="md-header-anchor"></a><span>Connecting Microphones, Instruments and Other Devices</span></h4><p><span>The RØDECaster Pro II features four high-quality Neutrik™ combo jacks for plugging in microphones, instruments (such as guitars and basses), and line-level devices like keyboards and drum machines. In this section, we’ll show you how to connect these devices and get them set up for recording.</span></p><h4><a name="connecting-microphones" class="md-header-anchor"></a><span>Connecting Microphones</span></h4><p><span>To start, plug your microphone into input 1 on the back of the unit using a standard 3-pin XLR cable. You can use any XLR microphone with the RØDECaster Pro II, including condenser microphones that require phantom power (note: USB microphones cannot be used with the RØDECaster Pro II). By default, inputs 1-4 will be allocated to faders 1-4 on the mixer. Ensuring that fader 1 is all the way down, also plug a pair of headphones into headphone channel 1 so you will be able to monitor your audio.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_9.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="microphone-basic-setup" class="md-header-anchor"></a><span>Microphone Basic Setup</span></h4><p><span>To access the channel setup screen for fader 1, press the coloured button above the physical fader or tap the fader on the screen. Here you can select what type of microphone you are using, which will adjust the level, voicing and activate phantom power (if required). If your microphone does not appear in the “mic locker” menu, select the universal dynamic or condenser option. You can also manually turn phantom power on and off.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_10.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="pro-tip-n173" class="md-header-anchor"></a><span>Pro Tip</span></h4><p><span>The four analog inputs on the RØDECaster Pro II feature our world-class Revolution Preamps™. These are ultra-low-noise, high-gain preamps that will give you plenty of output, even with the most demanding dynamic microphones, while remaining incredibly quiet. This eliminates the need to use a line booster or lifter with your microphones. In fact, the noise floor of the Revolution Preamps is so low, using a lifter will actually introduce noise to your signal, so we highly recommend NOT using one.</span></p><p>&nbsp;</p><h4><a name="setting-microphone-levels" class="md-header-anchor"></a><span>Setting Microphone Levels</span></h4><p><span>Once your microphone is set up, push fader 1 up to the thick line just over halfway up the fader. This represents ‘unity gain’. Then, turn headphone channel 1 up to a comfortable listening level. Underneath the “mic locker” is a level meter and gain control. Keeping an eye on the level meter, talk at a natural level as close to the microphone as you will be when recording. Your audio should be jumping around the green section of the meter while you’re talking. If you selected the correct microphone setting, you should already be at a good recording level. Use the ‘+’ and ‘-’ buttons to adjust if required. Repeat this process for as many microphones as you need for your recording.</span></p><p><strong><span>Note:</span></strong><span> You may notice that you are still getting levels on the meter even if the fader is all the way down. This is because the fader controls the level that is being sent to the output of the RØDECaster Pro II, not the channel input level.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_11.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="tips-on-microphone-technique" class="md-header-anchor"></a><span>Tips on Microphone Technique</span></h4><p><span>Good microphone technique is incredibly important for capturing clean, clear recordings and getting the best out of your microphone and recording device, while poor technique can be detrimental to your recording. Click the link below to find out more about microphone technique, as well as tips on setting your gain correctly and choosing the right recording space.</span></p><p>&nbsp;</p><h4><a name="using-microphone-presets" class="md-header-anchor"></a><span>Using Microphone Presets</span></h4><p><span>The RØDECaster Pro II offers a selection of professionally tailored microphone presets ideal for podcasting and livestreaming. To access these, click the ‘Presets’ tab in channel setup screen. There are three default presets to choose from: ‘Neutral’, ‘Podcast Studio’ and ‘Broadcast’. You can also create your own presets (check out the section on ‘</span><a href='https://rode.com/user-guides/rodecaster-pro-ii/how-to-use-the-on-board-processing'><span>How to Use the On-board Processing</span></a><span>’ to learn more about creating presets).</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_12.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="connecting-instruments-and-line-level-devices" class="md-header-anchor"></a><span>Connecting Instruments and Line-Level Devices</span></h4><p><span>To connect an instrument or line-level device, the process is much the same as connecting a microphone: simply plug it in to any of the four inputs using a TRS or instrument cable. Next, open the channel setup screen and select either ‘Line-in’ or ‘Instrument’ from the “mic locker” menu – this will adjust the input gain to a suitable level depending on what is connected. Use the level meter and ‘+’ and ‘-’ buttons to adjust the input gain as required.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_13.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="stereo-linking-inputs" class="md-header-anchor"></a><span>Stereo Linking Inputs</span></h4><p><span>If you are using an instrument or line level device with stereo outputs, or recording a stereo microphone pair, you can link two inputs and route them to one channel. This will allow you to control the level of both inputs with a single fader, ensuring both channel levels are exactly the same.</span></p><p><span>To link two inputs, open the channel setup screen for the fader you want to allocate them to and click the settings cog to access the fader assignment screen. Next, tap the ‘Stereo’ icon underneath the inputs you want to link (note: you can only link inputs that are next to each other, i.e., 1 and 2, 2 and 3, and 3 and 4). Tap the green tick icon to save. After saving, ensure that you have the correct input type selected from the “mic locker” menu.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_14.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="pro-tip-n243" class="md-header-anchor"></a><span>Pro Tip</span></h4><p><span>Linked inputs will automatically be panned hard left and right, giving you a full stereo image. You will also notice that faders with linked inputs assigned to them will have two level meters on the mixer screen, so you can independently monitor the level of each input.</span></p><p>&nbsp;</p><h4><a name="saving-and-exporting-settings-as-a-show" class="md-header-anchor"></a><span>Saving and Exporting Settings as a &#39;Show&#39;</span></h4><p><span>All of your settings, including your channel setup, mixer and SMART pad configuration, processing, effects, and device configuration, can be saved onto a microSD card or hard drive as a ‘Show&#39;. To do this, tap the icon in the top left corner of the home screen or tap the settings cog then ‘Show’, then tap ‘Export’. This will take a snapshot of all your settings and save them as a file to your storage device, which can then be transferred to your computer.</span></p><p><span>You can save and export as many ‘Show’ snapshots as you like, which is handy if you share your RØDECaster Pro II with other creators or if you create several different podcasts, livestreams or different types of content.</span></p><p><span>To import a ‘Show’ that you have saved, make sure the file is loaded onto a microSD card or hard drive, connect this to your device, tap the icon in the top left corner of the home screen or tap the settings cog then ‘Show’ &gt; ‘Import’, then select the ‘Show’ you want to import from the list.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_15.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h4><a name="factory-reset" class="md-header-anchor"></a><span>Factory Reset</span></h4><p><span>To perform a factory reset, tap the settings cog, then ‘System’ &gt; ‘Information’ &gt; ‘View Device Information’, then ‘Erase and Reset Device’.</span></p><p><strong><span>Note:</span></strong><span> This will permanently delete all current configuration data. If you would like to save this data before erasing, see section above for how to export your ‘Show.</span></p><p><img src="https://pinostudio1.com/RODECaster-Pro-II/rode-rodecaster-pro-II-imagen_16.jpg" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><p>&nbsp;</p></div>
+</body>
+</html>
